@@ -1,0 +1,106 @@
+@import 'var.less';
+.gallery{
+    margin-bottom: 50px;
+    h1{
+        color: #FFF;
+        text-align: center;
+        font-family: "lato", sans-serif;
+        font-weight: 300;
+        font-size: 30px;
+        letter-spacing: 5px;
+        //margin-top: -60px;
+        padding-left: 10px;
+        text-transform: uppercase;
+        background: -webkit-linear-gradient(white, #38495a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @media only screen and (min-width: @mobile){
+            font-size: 40px;
+            letter-spacing: 10px;
+        } 
+        @media only screen and (min-width: @desktop){
+            font-size: 50px;
+        }
+        /*
+        color: @color-blue;
+        font-size: 30px;
+        margin: 50px auto 10px;
+        text-transform: uppercase;
+        text-align: center;
+        @media only screen and (min-width: @desktop){
+            font-size: 32px;
+            margin-bottom: 30px;
+        }*/
+    }
+    &-images{
+        column-count: 1;
+        margin: 0 auto;
+        padding: 0 20px;
+        @media only screen and (min-width: @mobile-xs){
+            column-count: 2;
+        }
+        @media only screen and (min-width: @mobile){
+            column-count: 3;
+        }
+        @media only screen and (min-width: @desktop){
+            column-count: 4;
+            max-width: @max-width;
+        }
+        a{
+            img{
+                transition: 0.4s ease-in-out;
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px; 
+            }
+            img:hover{
+                transform: scale(1.05);
+                box-shadow: 0 0 20px @color-blue;
+            }
+        }
+    }
+}
+
+
+.box {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.box .single-box img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    background: #000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    opacity: 0;
+    transform: scale(1.5) rotate(15deg);
+    -webkit-animation: animate 32s infinite;
+    animation: animate 32s infinite;
+}
+.box .single-box:nth-child(3) img {
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+}
+.box .single-box:nth-child(2) img {
+    -webkit-animation-delay: 16s;
+    animation-delay: 16s;
+}
+.box .single-box:nth-child(1) img {
+    -webkit-animation-delay: 24s;
+    animation-delay: 24s;
+}
+@keyframes animate {
+    25% {
+        from {opacity: .1} to {opacity: 1}
+        transform: scale(1) rotate(0);
+    }
+    100% {
+        opacity: 0;
+    }
+}
